@@ -11,6 +11,10 @@ import random # библиотека функций для генерации с
 # Сторонние библиотеки
 import numpy as np # библиотека функций для работы с матрицами
 """ ---Раздел описаний--- """
+def sigmoid(z): # определение сигмоидальной функции активации
+    return 1.0/(1.0+np.exp(-z))
+def sigmoid_prime(z):# Производная сигмоидальной функции
+    return sigmoid(z)*(1-sigmoid(z))
 """ --Описание класса Network--"""
 class Network(object): # используется для описания нейронной сети
     def __init__(self, sizes): # конструктор класса
@@ -93,10 +97,6 @@ def evaluate(self, test_data): # Оценка прогресса в обучен
 def cost_derivative(self, output_activations, y): # Вычисление частныхпроизводных стоимостной функции по выходным сигналам последнего слоя
     return (output_activations-y)  
 """ --Конец описания класса Network--"""
-def sigmoid(z): # определение сигмоидальной функции активации
-    return 1.0/(1.0+np.exp(-z))
-def sigmoid_prime(z):# Производная сигмоидальной функции
-    return sigmoid(z)*(1-sigmoid(z))
 """ --- Конец раздела описаний--- """
 """ ---Тело программы--- """
 
